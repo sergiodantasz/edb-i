@@ -2,41 +2,48 @@
 
 using namespace std;
 
-int tail_recursive_sum(int number, int accumulator) {
-  if (number == 0) {
-    return accumulator;
+int tail_recursive_sum(int n1, int n2, int acc) {
+  if (n2 == 0) {
+    return acc + n1;
   }
 
-  return tail_recursive_sum(number - 1, accumulator + number);
+  return tail_recursive_sum(n1, n2 - 1, acc + 1);
 }
 
-int recursive_multiplicacion(int number) {
-  return tail_recursive_sum(number, 0);
-}
+int recursive_sum(int n1, int n2) { return tail_recursive_sum(n1, n2, 0); }
 
-int iterative_multiplication(int number) {
-  int accumulator = 0;
+int iterative_sum(int n1, int n2) {
+  int acc = 0;
 
-  for (int current = number; current > 0; current--) {
-    accumulator += current;
+  while (n2 > 0) {
+    acc += 1;
+    n2 -= 1;
   }
 
-  return accumulator;
+  return acc + n1;
 }
 
 int main() {
-  int number;
+  int n1, n2;
 
-  cout << "Digite um número: ";
-  cin >> number;
+  cout << "Digite n1: ";
+  cin >> n1;
+  cout << "Digite n2: ";
+  cin >> n2;
 
-  if (number < 0) {
-    cout << "Digite um número maior ou igual a 0.";
-    return 1;
+  if (n1 < 0 || n2 < 0) {
+    cout << "Digite números maiores ou iguais a 0." << endl;
+    return -1;
   }
 
-  int recursive_result = recursive_multiplicacion(number);
-  int iterative_result = iterative_multiplication(number);
+  if (n2 > n1) {
+    int temp = n1;
+    n1 = n2;
+    n2 = temp;
+  }
+
+  int recursive_result = recursive_sum(n1, n2);
+  int iterative_result = iterative_sum(n1, n2);
 
   cout << "Resultados:" << endl;
   cout << "- Soma com recursão de cauda: " << recursive_result << endl;
