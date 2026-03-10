@@ -36,12 +36,6 @@ int main() {
     return -1;
   }
 
-  if (n2 > n1) {
-    int temp = n1;
-    n1 = n2;
-    n2 = temp;
-  }
-
   int recursive_result = recursive_sum(n1, n2);
   int iterative_result = iterative_sum(n1, n2);
 

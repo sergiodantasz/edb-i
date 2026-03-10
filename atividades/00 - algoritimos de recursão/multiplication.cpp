@@ -37,14 +37,8 @@ int main() {
     return -1;
   }
 
-  if (n2 > n1) {
-    int temp = n1;
-    n1 = n2;
-    n2 = temp;
-  }
-
   int recursive_result = recursive_multiplication(n1, n2);
-  int iterative_result = iterative_sum(n1, n2);
+  int iterative_result = iterative_multiplication(n1, n2);
 
   cout << "Resultados:" << endl;
   cout << "- Multiplicação com recursão de cauda: " << recursive_result << endl;
