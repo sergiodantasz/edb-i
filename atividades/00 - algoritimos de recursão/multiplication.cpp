@@ -14,7 +14,7 @@ int recursive_multiplication(int n1, int n2) {
   return tail_recursive_multiplication(n1, n2, 0);
 }
 
-int iterative_sum(int n1, int n2) {
+int iterative_multiplication(int n1, int n2) {
   int acc = 0;
 
   for (int i = 0; i < n2; i++) {
